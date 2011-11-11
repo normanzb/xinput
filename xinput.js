@@ -28,7 +28,7 @@
 	                }
             	};
         	})(opts.callback))
-        	.data(DATA_KEY_XINPUT, el.val());
+        	.data(DATA_KEY_XINPUT, $el.val());
 	};
 
 	var exports = {
