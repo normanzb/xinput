@@ -5,7 +5,7 @@
 */
 ;!function($, etui){
 
-	var var DATA_KEY_OPTS = 'jQuery.fn.xinput',
+	var DATA_KEY_OPTS = 'jQuery.fn.xinput',
 		DATA_KEY_XINPUT = 'jQuery.fn.xinput.prevText';
 
 	var defaultSettings = {
