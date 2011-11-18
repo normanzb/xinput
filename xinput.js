@@ -7,31 +7,31 @@
 
 	$ = etui.$;
 
-	var DATA_KEY_OPTS = 'jQuery.fn.xinput',
-		DATA_KEY_XINPUT = 'jQuery.fn.xinput.prevText';
+	var DATA_KEY_OPTS = 'jQuery.fn.xinput';
 
-	var defaultSettings = {
-		callback: jQuery.noop
-	};
 
 	var init = function(){
 		var $el = $(this);
 		var opts = $el.data(DATA_KEY_OPTS);
-		var callback = opts.callbacks[opts.callbacks.length - 1];
+		var callbacks = opts.callbacks;
 
 		$el
-			.bind('input', opts.callback)
-        	.bind('propertychange',(function(callback){
+			.bind('input', callbacks[callbacks.length - 1])
+        	.bind('propertychange',(function(callbacks){
             	return function(){
 	                var $el = $(this);
 	                var pt = opts.prevText;
 	                opts.prevText = $el.val();
 	                
 	                if (pt !== $el.val()){
-	                    callback.apply(this, arguments);
+                        var l = callbacks.length;
+                        while(l--){
+                            callbacks[l].apply(this, arguments);
+                        }
+	                    
 	                }
             	};
-        	})(callback));
+        	})(callbacks));
         	opts.prevText = $el.val();
 	};
 
