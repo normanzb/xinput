@@ -5,6 +5,10 @@
 */
 ;!function($, etui){
 
+    if (etui && etui.$){
+        $ = etui.$;
+    }
+
     var DATA_KEY_OPTS = 'jQuery.fn.xinput';
 
     var testee = document.createElement('input');
@@ -49,7 +53,9 @@
 
         if (!!opts.bound == false){
             $el.bind('propertychange',(function(callbacks){
-                return function(){
+                return function(evt){
+                	evt.originalType = evt.type;
+                	evt.type = 'input';
                     var $el = $(this);
                     var pt = opts.prevText;
                     opts.prevText = $el.val();
