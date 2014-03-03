@@ -1,21 +1,18 @@
-/*!require:*/
 /*
     jQueryPlugin: xinput
     cross browser input event implementation
 */
-;!function($, etui){
-
-    if (etui && etui.$){
-        $ = etui.$;
-    }
+;!function($){
 
     var DATA_KEY_OPTS = 'jQuery.fn.xinput';
 
     var testee = document.createElement('input');
     var supportInput = "oninput" in testee || checkEvent(testee);
+
     /*
-       The following function tests an element for oninput support in Firefox.  Many thanks to
-            http://blog.danielfriesen.name/2010/02/16/html5-browser-maze-oninput-support/
+        The following function tests an element for oninput support in Firefox.
+        Many thanks to:
+        http://blog.danielfriesen.name/2010/02/16/html5-browser-maze-oninput-support/
     */
     function checkEvent(el) {
         // First check, for if Firefox fixes its issue with el.oninput = function
@@ -158,15 +155,6 @@
         return jQOverwrite;
     };
 
-    
     jQOverwrite($);
 
-
-    // add etui compatible plugin
-    // if etui is loaded
-    if (etui && etui.$ && !(etui.$.fn.texttip)){
-        jQOverwrite(etui.$);
-    }
-
-
-}(window.jQuery, window.etui);
+}(window.jQuery);
