@@ -49,6 +49,7 @@ define(['../lib/boe/src/boe/Function/bind'], function (bind) {
         var me = this;
         
         if ( 
+            window.event != null &&
             PROPERTYNAME in window.event && 
             window.event[PROPERTYNAME] != null && 
             window.event[PROPERTYNAME] !== ''
