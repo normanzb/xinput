@@ -76,7 +76,7 @@ var XInput = function (bind) {
     /* Private */
     function onchange(evt) {
         var me = this;
-        if (PROPERTYNAME in window.event && window.event[PROPERTYNAME] != null && window.event[PROPERTYNAME] !== '') {
+        if (window.event != null && PROPERTYNAME in window.event && window.event[PROPERTYNAME] != null && window.event[PROPERTYNAME] !== '') {
             if (window.event[PROPERTYNAME] !== 'value') {
                 return;
             }
