@@ -2,6 +2,7 @@ define(['../lib/boe/src/boe/Function/bind'], function (bind) {
     'use strict';
 
     var INPUT = 'input';
+    var TEXTAREA = 'textarea';
     var CHANGE = 'change';
     var PROPERTYNAME = 'propertyName';
 
@@ -100,7 +101,11 @@ define(['../lib/boe/src/boe/Function/bind'], function (bind) {
     };
 
     p.observe = function(el){
-        if ( el == null || el.tagName.toLowerCase() != INPUT ) {
+        if ( el == null || (
+                el.tagName.toLowerCase() != INPUT &&
+                el.tagName.toLowerCase() != TEXTAREA
+            )
+        ) {
             throw 'Target input element must be specified.';
         }
 
