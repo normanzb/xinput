@@ -37,6 +37,7 @@ var libBoeSrcBoeFunctionBind = function (global) {
 var XInput = function (bind) {
     
     var INPUT = 'input';
+    var TEXTAREA = 'textarea';
     var CHANGE = 'change';
     var PROPERTYNAME = 'propertyName';
     /* Feature Detection */
@@ -114,7 +115,7 @@ var XInput = function (bind) {
         this._old = this._el.value;
     };
     p.observe = function (el) {
-        if (el == null || el.tagName.toLowerCase() != INPUT) {
+        if (el == null || el.tagName.toLowerCase() != INPUT && el.tagName.toLowerCase() != TEXTAREA) {
             throw 'Target input element must be specified.';
         }
         var me = this;
