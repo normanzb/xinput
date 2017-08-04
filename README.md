@@ -1,8 +1,8 @@
-#XInput
+# XInput
 
 Cross browser input event observer
 
-#Usage
+# Usage
 
 Use it as global variable:
 
@@ -23,14 +23,14 @@ Or use it as amd module:
     });
 
 
-#Method
+# Method
 
 * observe: start observing the change
 * neglect: stop observing the change
 * sync: sync up input value (usually after value is changed by code)
 * trigger: will call into oninput event handler
 
-#Callback
+# Callback
 
 * oninput: will be called once the input value gets changed
 
